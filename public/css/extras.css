@@ -2,7 +2,7 @@ body {
 	min-height: 2000px;
 	margin: 0;
 	padding: 80px 100px;
-	font: 14px "Helvetica Neue", "Lucida Grande", "Arial";
+	font: 15px "Helvetica Neue", "Lucida Grande", "Arial";
 	background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
 	background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
 	background-repeat: no-repeat;
