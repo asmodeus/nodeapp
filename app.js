@@ -8,7 +8,7 @@
  var user = require('./routes/user');
  var http = require('http');
  var path = require('path');
-
+ var pg = require('pg');
  var app = express();
 
 // all environments
@@ -25,6 +25,14 @@ app.use(express.session());
 app.use(app.router);
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  client.query('SELECT * FROM your_table', function(err, result) {
+    done();
+    if(err) return console.error(err);
+    console.log(result.rows);
+  });
+});
 
 // development only
 if ('development' == app.get('env')) {
