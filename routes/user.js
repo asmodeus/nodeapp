@@ -1,8 +1,8 @@
+ // var db = require('./db');
 
-/*
- * GET users listing.
- */
+ // exports.list = function(req, res){
 
-exports.user = function(req, res){
-  res.send("respond with a resource, the source is DONKEY KONKEY");
-};
+ // 	res.send("respond with a resource, the source is nothing "+db.gettime());
+ // };
+ 
+// unused class
