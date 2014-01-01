@@ -1,30 +1,27 @@
  var pg = require('pg');
-//or native libpq bindings
-//var pg = require('pg').native
+ var posts = [];	
 
-exports.timenow = function(){
 
-	var conString = process.env.DATABASE_URL || "postgres://toshi:pw@localhost:5432/toshi";
-
+exports.titles = function(){
+	var conString = "postgres://toshi:pw@localhost:5432/toshi"; //used locally
 	var client = new pg.Client(conString);
-	var ret = [];
 
 	client.connect(function(err) {
 		if(err) {
 			return console.error('could not connect to postgres', err);
-		}
-		client.query('SELECT * from products', function(err, result) {
-			if(err) {
-				return console.error('error running query', err);
-			}
-			console.log(result.rows);
-			ret = result.rows;
-		// return result.rows[0].theTime;
-    //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-    client.end();
-		});
+		}	
 	});
+	var query = client.query('SELECT * from posts');
 
-	if (ret) { return ret;}
+	query.on('row', function(row) {
+	    	//fired once for each row returned
+	    	posts.push(row);
+	    });
 
+	query.on('end', function(result) {
+		console.log(result.rowCount + ' rows were received');
+
+	});
+	return posts;
 };
+
