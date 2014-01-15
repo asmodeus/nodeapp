@@ -7,8 +7,6 @@
  var path = require('path');
  var routes = require('./routes/routes');
  var app = express();
- var db = require('./routes/db');
-
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -25,29 +23,23 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-
 // development only
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-// _.each(posts, function(row){
-// 	var routename = '/posts/'+row["title"];
-// 	console.log('get post at : '+routename);
-// 	app.get(routename, function(req, res){
-// 		res.render('index', { 
-// 			header: row["title"], 
-// 			ingress: row["ingress"],
-// 			content: row["text_content"]
-// 		});
-// 	});
-// });
-
 // Static content
 app.get('/about', routes.about);
-app.get('/test', routes.test);
+
+// Dynamic content
 app.get('/', routes.home);
+
+// Testing
+app.get('/test', function(req, res){
+	res.send(global);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
+
