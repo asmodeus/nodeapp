@@ -1,0 +1,1 @@
+console.log("this file could be a js resource");
