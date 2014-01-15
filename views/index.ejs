@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>teh?</title>
+	<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<link rel='stylesheet' href='/css/bootstrap.min.css'/>
 	<link rel='stylesheet' href='/css/bootstrap-theme.min.css'/>
 	<link href="/css/extras.css" rel="stylesheet">
@@ -18,34 +21,42 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand " href="/">A. T. Hogberg</a>
+				<a class="navbar-brand " href="/">Adam TH</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-
+			
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">		
 
 					<li class="dropdown" >
-						<a href="/about" class="" >About</a>
+						<a href="/about" class="" >ABOUT</a>
 					</li>
 
-					<li class="dropdown">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown" >Me at other places<b class="caret"></b></a>
+					<li class="dropdown" >
+						<a href="/about" class="" >PROCESSING</a>
+					</li>
+
+					<li class="dropdown" >
+						<a href="/about" class="" >THREE</a>
+					</li>
+
+					<li class="dropdown" >
+						<a href="/about" class="" >GAMES</a>
+					</li>
+
+					<li class="dropdown" >
+						<a href="/about" class="" >BLOG</a>
+					</li>
+
+
+				<!-- <li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" >links<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="https://github.com/asmodeus">GitHub</a></li>
+							<li><a href="https://github.com/asmodeus">github</a></li>
 							<li><a href="http://codeymodey.tumblr.com/">tumblr</a></li>
 						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown">Projects<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="/">Visuals</a></li>
-							<li><a href="#">Games</a></li>
-							<li><a href="#">Sites</a></li>
-						</ul>
-					</li>
+					</li>  -->
 
 				</ul>
 			</div>
@@ -53,17 +64,7 @@
 		<!-- Navbar end -->
 	</nav>
 
-	<%- include text-content.ejs %>
-<!-- 
-	<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-		<div class="container">	
-			<button type="button" onclick="" class="btn btn-link col-md-4"><span class="glyphicon glyphicon-chevron-left"></span></button>
-			<button type="button" class="btn btn-link col-md-4"><span class="glyphicon glyphicon-chevron-up"></span></button>
-			<button type="button" class="btn btn-link col-md-4"><span class="glyphicon glyphicon-chevron-right"></span></button>
-		</div>
-	</nav> -->
+	<% include text-content.ejs %>
 
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
