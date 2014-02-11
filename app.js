@@ -36,7 +36,7 @@ app.get('/', routes.home);
 
 // Testing
 app.get('/test', function(req, res){
-	res.send(global);
+	res.send("This is a test");
 });
 
 http.createServer(app).listen(app.get('port'), function(){
