@@ -1,29 +1,24 @@
-<style type="text/css">
-	.center {
-		margin: 0 auto;
-		display: block;
-	}
-</style>
 
-<% for(var i=0; i<viewdata.length; i++) {%>	
+
+<% for (var i=0; i<viewdata.length; i++) { %>	
 <div class="container" id="content<%viewdata[i]['title']%>">
 	<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
-		<div class="panel-body">
+		<div id="sketch" class="panel-body center" style="padding: 2em 6em;">
 
-			<small><%= viewdata[i]['post_date'].toLocaleDateString(); %></small>
-			<h1 class="text-center"><%= viewdata[i]['title'] %></h1>
+			<small><%= viewdata[i]['post_date'].toLocaleDateString() %></small>
+			
+			<% if (viewdata[i]['title'] !== null) { %>
+				<h1 class="text-center"><%= viewdata[i]['title'] %></h1>
+			<% } %>
 			
 			<!-- ingresses are optional -->
-			<h3 class="text-center"><%= viewdata[i]['ingress'] %></h3>
+			<% if (viewdata[i]['ingress'] !== null) { %>
+				<h3 class="text-center"><%= viewdata[i]['ingress'] %></h3>
+			<% } %>
 
 			<% if ( viewdata[i]['resource_path'] !== 'none') { %>
-			<div class="center" style="width: 320px; height: 220px; ">
-				<div style="margin: -5em 298px;" class="btn-group btn-group-xs">
-					<button type="button" class="btn"><span class="glyphicon glyphicon-export"></span></button>
-				</div>
-				<canvas class="panel panel-default" style="position: relative; margin: 0 -1px; box-shadow:  3px 5px 6px #777;" width="320" height="200" data-processing-sources="test.pde"/></canvas>
-			</div>
-			<% } %>
+			<canvas class="panel panel-default center" style="box-shadow:  3px 5px 6px #777;" data-processing-sources="/sketches/test.pde"/></canvas>
+			<% } %> 
 
 			<p style="padding: 2em;"> <%= viewdata[i]['text_content'] %></p>
 

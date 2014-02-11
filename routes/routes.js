@@ -25,8 +25,6 @@
 
  exports.home = function(req, res){
  	res.render('home', { 
- 		title: 'some random cool stuff', 
- 		ingress: 'Furry feet',
- 		content: 'What do being a hobbit and telecommuting have in common?'
+ 		
  	});
  }; 
