@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link href="/css/extras.css" rel="stylesheet">
+</head>
+<body>
+	<div id="sketch">
+		<canvas id='id' style='box-shadow: 3px 5px 6px #777;' data-processing-sources='./processing.pde'/></canvas>
+	</div>
+	<script type="text/javascript">
+		var w = window.innerWidth,
+		h = window.innerHeight;
+		var c = window.document.querySelector('#id');
+		c.width = w/2;
+		c.height = h/2;
+		c.style.margin = c.height/2+"px "+c.width/2+"px";	
+	</script>
+</body>
+</html>
