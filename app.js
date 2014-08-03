@@ -24,7 +24,6 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-
 // development only
 if ( 'development' == app.get('env') ) {
 	app.use(express.errorHandler());
@@ -35,16 +34,12 @@ app.get('/posts/:id', routes.posts );
 // Get all posts 
 app.get('/posts', routes.posts );
 
-app.put('/post', routes.posts );
-
-app.get('/', routes.main );
-
-app.get('/blog', routes.blog );
-
-// Testing
+// Routes API
 app.get('/api', function(req, res){
 	res.send(app.routes);
 });
+
+app.get('*', routes.main );
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
