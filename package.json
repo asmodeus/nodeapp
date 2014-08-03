@@ -9,7 +9,6 @@
     "express": "~3.4.4",
     "ejs": "*",
     "less-middleware": "*",
-    "pg": "*",
-    "underscore": "~1.5.2"
+    "pg": "*"
   }
 }

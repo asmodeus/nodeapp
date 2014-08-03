@@ -1,28 +1,44 @@
-body {
-	min-height: 2000px;
-	margin: 0;
-	padding: 80px 100px;
-	font: 15px "Helvetica Neue", "Lucida Grande", "Arial";
-	background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
-	background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
-	background-repeat: no-repeat;
-	color: #555;
-	-webkit-font-smoothing: antialiased;
-}
+ @font-face { 
+ 	font-family: "Construthinvism"; src: url('./fonts/Const/construthinvism.ttf'); 
+ }
 
-.navbar-static-top {
-	margin-bottom: 19px;
-}
+ @font-face { 
+ 	font-family: "Calendas Plus"; src: url('./fonts/Calendas_Plus/Calendas_Plus.otf'); 
+ }
 
-a {
-	-o-transition:.5s;
-	-ms-transition:.5s;
-	-moz-transition:.5s;
-	-webkit-transition:.5s;
-	transition:.5s;
-}
+ @font-face { 
+ 	font-family: "Higher"; src: url('./fonts/Higher/Higher.otf'); 
+ }
+
+ body {
+ 	min-height: 2000px;
+ 	margin: 0;
+ 	padding: 80px 100px;
+ 	font: 15px "Helvetica Neue", "Lucida Grande", "Arial";
+ 	background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
+ 	background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
+ 	background-repeat: no-repeat;
+ }
+
+ a {
+ 	color: blue;
+ 	-o-transition:.5s;
+ 	-ms-transition:.5s;
+ 	-moz-transition:.5s;
+ 	-webkit-transition:.5s;
+ 	transition:.5s;
+ }
 
 
-.navbar-extra {
-	margin: 1em 1em 1em 1em; 
-}
+ a {
+ 	font-family: "Higher";
+	font-size: 36px;
+ }
+
+ h3, h2, h1, p {
+ 	font-family: "Calendas Plus";
+ }
+
+ li:hover {
+ 	text-decoration: underline;
+ }
