@@ -1,12 +1,13 @@
 /**
  * Module dependencies.
  */
- var _ = require('underscore');
  var express = require('express');
  var http = require('http');
  var path = require('path');
  var routes = require('./routes/routes');
  var app = express();
+ var db = require('./controllers/db');
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -23,20 +24,26 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
+
 // development only
-if ('development' == app.get('env')) {
+if ( 'development' == app.get('env') ) {
 	app.use(express.errorHandler());
 }
 
-// Static content
-app.get('/about', routes.about);
+// Get posts with id param 
+app.get('/posts/:id', routes.posts );
+// Get all posts 
+app.get('/posts', routes.posts );
 
-// Dynamic content
-app.get('/', routes.home);
+app.put('/post', routes.posts );
+
+app.get('/', routes.main );
+
+app.get('/blog', routes.blog );
 
 // Testing
-app.get('/test', function(req, res){
-	res.send("This is a test");
+app.get('/api', function(req, res){
+	res.send(app.routes);
 });
 
 http.createServer(app).listen(app.get('port'), function(){

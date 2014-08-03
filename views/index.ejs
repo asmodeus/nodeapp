@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>a.t.h.</title>
+	<script type="text/javascript">
+		// random starcraft reference script
+		var scbw = [ "WeMade FOX", "BoxeR", "ElkY", "Bisu", "Jaedong", "Evil Geniuses", "Tasteless", "SleepingDrone", "SlayerS_`BoxeR`", "n.Die_Jaedong", "Flash", "By.FlaSh", "Bisu[Shield]", "[Red]NaDa", "Sea.s2", "CJ ENTUS", "SK Telecom T1", "KT Rolster", "IPXZerg", "sAviOr[gm]", "firebathero", "eVERLAST", "Androide", "IdrA[Media]", "Grrrr...", "iloveoov" ]
+		document.title = scbw[Math.ceil(Math.random() * scbw.length-1)];
+	</script>
+
+
+	<title></title>
 	<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<link rel='stylesheet' href='/css/bootstrap.min.css'/>
-	<link rel='stylesheet' href='/css/bootstrap-theme.min.css'/>
+	<script type="text/javascript" src="/js/globals.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		if ( !localStorage.getItem("blogposts") ) {
+
+			var dc = document.cookie;
+			dc = dc.substr(dc.indexOf('endpoint')+'endpoint'.length+1);
+				// jQuery AJAX call for JSON
+			$.getJSON( "/"+dc , function( data ) {
+
+				// For each item in our JSON, add a table row and cells to the content string
+				$.each(data, function(){
+					console.log(data);
+				});
+
+				localStorage.setItem("blogposts", data);
+
+			});
+			
+		}
+	});
+	</script>
+	<script type="text/javascript" src="/bootstrap-dist/js/bootstrap.min.js"></script>
+	<link rel='stylesheet' href='/bootstrap-dist/css/bootstrap.min.css'/>
+	<link rel='stylesheet' href='/bootstrap-dist/css/bootstrap-theme.min.css'/>
 	<link href="/css/extras.css" rel="stylesheet">
 	<style type="text/css">
+
 		.center {
 			margin: 0 auto;
 			display: block;
 		}
+
+		.navbar-nav.nav-justified > li{
+		    float:none;
+		}
+
 	</style>
 </head>
-<body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
-		<div class="container">		
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top"  role="navigation">
+
+		<div class="container"> 
+
 			<!-- Brand and toggle get grouped for better mobile display -->
+
 			<div class="navbar-header" >
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand " href="/">Theo</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			
-			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">		
-
-					<li class="dropdown" >
+			<div class="collapse navbar-collapse" id="navbar-collapse-1">
+				<ul class="nav navbar-nav nav-justified">     
+					<li class="dropdown active">
 						<a href="/about" class="" >About</a>
 					</li>
 
 					<li class="dropdown" >
-						<a href="/about" class="" >Processing</a>
+						<a href="/interactive" class="" >Interactive</a>
 					</li>
 
 					<li class="dropdown" >
-						<a href="/about" class="" >Three</a>
+						<a href="/design" class="" >Design</a>
 					</li>
 
 					<li class="dropdown" >
-						<a href="/about" class="" >Games</a>
+						<a href="/games" class="" >Games</a>
 					</li>
 
 					<li class="dropdown" >
-						<a href="/about" class="" >Blog</a>
+						<a href="/blog" class="" >Blog</a>
 					</li>
 
 				</ul>
@@ -61,7 +97,30 @@
 		<!-- Navbar end -->
 	</nav>
 
-	<% include text-content.ejs %>
+	<div class="modal hide fade">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Modal header</h3>
+		</div>
+		<div class="modal-body">
+			<p>One fine body…</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn">Close</a>
+			<a href="#" class="btn btn-primary">Save changes</a>
+		</div>
+	</div>
+
+	<div class="container" id="content">
+		<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
+			<h3 class="text-center">Hello there, take a  processingjs example</h3>
+			<div class="panel-body">
+				<!-- <div id="sketch" class="center" style="padding: 2em 6em;"> -->
+					<script type="text/javascript">$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777;' data-processing-sources='/sketches/processing.pde' /></canvas>");</script>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
