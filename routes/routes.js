@@ -1,24 +1,10 @@
+var db = require( '../controllers/db' );
+
+
 /*
 * GET home page.
 */
-var db = require( '../controllers/db' );
-
-exports.getAllPostsByDate = function( req, res, category ){
-	db.call("select * from posts where category = '"+category+"' order by post_date", function(data){
-		res.render('main', { viewdata: data });
-	});
-};
-
 exports.main = function( req, res ){
-	res.render( 'index' );
-};
-
-exports.about = function( req, res ){
-	// res.render( 'main',  { viewdata:  } );
-};
-
-exports.blog = function( req, res ){
-	res.cookie('endpoint', 'posts', { /* add time limit */ });
 	res.render( 'index' );
 };
 
@@ -31,17 +17,15 @@ exports.posts = function( req, res ){
 	else 
 		id = "";
 
-	db.call(endPointHandler( req, { 
-			select : "select * from posts where category = 'risus' "+id+" order by post_date"  
-		} ), function(data){
+	db.call(queryConstructor( req, { 
+				select : "select * from posts where category = 'risus' "+id+" order by post_date"  
+			} ), function(data){
 		res.send( data );
 	});		
-
-
 };
 
 
-function endPointHandler(req, def){
+function queryConstructor(req, def){
 	var def_struct = {
 		select : "",
 		alter : "",
