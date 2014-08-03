@@ -29,16 +29,47 @@
  	transition:.5s;
  }
 
-
- a {
+.navbar-nav a {
  	font-family: "Higher";
-	font-size: 36px;
+	font-size: 37px;
  }
 
- h3, h2, h1, p {
+ h3, h2, h1, button {
  	font-family: "Calendas Plus";
+ }
+
+ p {
+ 	font-family: "Calendas Plus";
+ 	font-size: 18px;
  }
 
  li:hover {
  	text-decoration: underline;
  }
+
+.center {
+	margin: 0 auto;
+	display: block;
+}
+
+.navbar-nav.nav-justified > li{
+    float:none;
+}
+
+.nox {
+	overflow-x:none;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  overflow: auto;
+  height: 100%;
+}
+
+/* unset bs3 setting */
+.modal-open {
+ overflow: auto; 
+}

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="initial-scale = 0.6, maximum-scale = 2.0" />
+	
 	<script type="text/javascript">
-		// random starcraft reference script
-		var scbw = [ "WeMade FOX", "BoxeR", "ElkY", "Bisu", "Jaedong", "Evil Geniuses", "SleepingDrone", "SlayerS_`BoxeR`", "n.Die_Jaedong", "Flash", "By.FlaSh", "Bisu[Shield]", "[Red]NaDa", "Sea.s2", "CJ ENTUS", "SK Telecom T1", "KT Rolster", "IPXZerg", "sAviOr[gm]", "firebathero", "eVERLAST", "Androide", "IdrA[Media]", "Grrrr...", "iloveoov" ]
-		document.title = scbw[Math.ceil(Math.random() * scbw.length-1)];
+	// random starcraft:bw reference script
+	var scbw = [ "WeMade FOX", "BoxeR", "ElkY", "Bisu", "Jaedong", "Evil Geniuses", "SleepingDrone", "SlayerS_`BoxeR`", "n.Die_Jaedong", "Flash", "By.FlaSh", "Bisu[Shield]", "[Red]NaDa", "Sea.s2", "CJ ENTUS", "SK Telecom T1", "KT Rolster", "IPXZerg", "sAviOr[gm]", "firebathero", "eVERLAST", "Androide", "IdrA[Media]", "Grrrr...", "iloveoov" ]
+	document.title = scbw[Math.ceil(Math.random() * scbw.length-1)];
 	</script>
-
 
 	<title></title>
 	<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-
 	<script type="text/javascript" src="/js/globals.js"></script>
 
 	<script type="text/javascript" src="/bootstrap-dist/js/bootstrap.min.js"></script>
@@ -20,20 +20,15 @@
 	<link href="/css/extras.css" rel="stylesheet">
 	<style type="text/css">
 
-		.center {
-			margin: 0 auto;
-			display: block;
-		}
-
-/*		.navbar-nav.nav-justified > li{
-		    float:none;
-		}*/
-
+	
 	</style>
 </head>
 
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top"  role="navigation">
+
+
+
 
 		<div class="container"> 
 
@@ -52,7 +47,7 @@
 			
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav nav-justified">     
-					<li class="dropdown active">
+					<li class="dropdown active navbar-btn">
 						<a href="/#about" class="" >About</a>
 					</li>
 
@@ -78,29 +73,32 @@
 		<!-- Navbar end -->
 	</nav>
 
-	<div class="container">
-	<div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
-</div>
+	<!-- Button trigger modal -->
 
+
+	<!-- Sketch Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+				<!-- <div id="sketch"></div> -->
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
 		<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
-			<h1 class="text-center">Hello there, take a  processingjs example</h1>
-			<h1 class="text-center">Hello there, take a  processingjs example</h1>
-			<h1 class="text-center">Hello there, take a  processingjs example</h1>
 			<h2 class="text-center">Hello there, take a  processingjs example</h2>
-			<h2 class="text-center">Hello there, take a  processingjs example</h2>
-			<h2 class="text-center">Hello there, take a  processingjs example</h2>
-			<h3 class="text-center">Hello there, take a  processingjs example</h3>
-			<h3 class="text-center">Hello there, take a  processingjs example</h3>
-			<h3 class="text-center">Hello there, take a  processingjs example</h3>
 			<!-- <div id="sketch" class="center"></div> -->
 			<div class="panel-body">
 			<p>He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.</p>
 			<p>He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.</p>
 			<p>He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.</p>
 			<p>THIS IS A LOT OF FUCKING TEXT</p>
+			<button class="btn btn-default btn-lg center" data-toggle="modal" data-target="#myModal">
+			Launch Processing Demo
+			</button>
 			</div>
 		</div>
 	</div>
@@ -120,6 +118,9 @@
 
 	</div>
 
-<script type="text/javascript">$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777;' data-processing-sources='/sketches/processing.pde' /></canvas>");</script>
+	<script type="text/javascript">
+	/*	$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");*/
+	</script>
+
 </body>
 </html>
