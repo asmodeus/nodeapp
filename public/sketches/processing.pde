@@ -7,7 +7,7 @@ float radius;
 
 void setup() {
 
-  size(700, 500); 
+  size(332, 208); 
 
   smooth();
 
