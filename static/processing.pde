@@ -13,7 +13,7 @@ void setup() {
 
   noStroke();
 
-  // frameRate(26);
+  frameRate(33);
 
   // strokeWeight( 1111 );
 

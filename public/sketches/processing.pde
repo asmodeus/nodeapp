@@ -25,7 +25,7 @@ void setup() {
 
 void draw() {
 
-  background(208,mouseY/2, 45 );
+  background(300, mouseY/2, mouseX/2 );
 
   radius = radius + sin( frameCount / 6 ); 
 
@@ -33,11 +33,11 @@ void draw() {
 
     for(int j = 0; j <= width*1.1; j += 20) {
 
-      float size = dist(j, j, i, j);
+      float size = dist(j, j, mouseX, mouseY);
 
       size = size/max_distance * 66 - radius;
 
-      fill(i/3,j/3, mouseX/3);
+      fill(i/3, j/3, mouseX/3);
 
       ellipse(i, j, size, size);
 
