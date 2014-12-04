@@ -2,11 +2,6 @@
 <html>
 <head>
 	<meta name="viewport" content="initial-scale = 0.6, maximum-scale = 2.0" />
-	<script type="text/javascript">
-	// Random starcraft:bw reference script
-	var scbw = [ "WeMade FOX", "BoxeR", "ElkY", "Bisu", "Jaedong", "Evil Geniuses", "SleepingDrone", "SlayerS_`BoxeR`", "n.Die_Jaedong", "Flash", "By.FlaSh", "Bisu[Shield]", "[Red]NaDa", "Sea.s2", "CJ ENTUS", "SK Telecom T1", "KT Rolster", "IPXZerg", "sAviOr[gm]", "firebathero", "eVERLAST", "Androide", "IdrA[Media]", "Grrrr...", "iloveoov" ]
-	document.title = scbw[Math.ceil(Math.random() * scbw.length-1)];
-	</script>
 	<title></title>
 	<script type="text/javascript" src="http://processingjs.org/js/processing.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -22,13 +17,13 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top"  role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
 		<div class="container"> 
 
 			<!-- Brand and toggle get grouped for better mobile display -->
 
-			<div class="navbar-header" >
+			<div class="navbar-header " >
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -40,8 +35,8 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
-				<ul class="nav navbar-nav nav-justified">     
-					<li class="dropdown active navbar-btn">
+				<ul class="nav navbar-nav nav-justified nav-pills ">     
+					<li class="dropdown">
 						<a href="/#about" class="" >About</a>
 					</li>
 
@@ -58,17 +53,20 @@
 					</li>
 
 					<li class="dropdown" >
-						<a href="/#blog" class="" >Blog</a>
+						<a href="/#home" class="" >Home</a>
 					</li>
 
 				</ul>
 			</div>
+
+		<!-- Container -->
 		</div>
-		<!-- Navbar end -->
+		
+	<!-- Navbar end -->
 	</nav>
 
 	<!-- Button trigger modal -->
-
+	<div class="spacer"></div>
 
 	<!-- Sketch Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -81,31 +79,33 @@
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<a name="about"></a>
+	<div class="anchor"></div>
+	<div class="center">
 		<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
-			<h2 class="text-center">Hello there, push the button for a processingJS example</h2>
-			<h3 class="text-center">Post #1</h3>
+			<h1 class="text-center">About!</h1>
 			<div class="panel-body">
-				<p></p>
-				<button class="btn btn-default btn-lg center" data-toggle="modal" data-target="#myModal">
-				Launch Processing Demo
+				<p class="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="left">push the button to see an animation</p>
+				<button class="btn btn-default center" data-toggle="modal" data-target="#myModal">
+				Execute Modal
 				</button>
 			</div>
 		</div>
 	</div>
 
+	<div class="spacer"></div>
 
-		<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
-			<h2 class="text-center">This site is works for mobile!</h3>
-			<h3 class="text-center">Post #2</h3>
-			<div class="panel-body">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
+	<div class="panel panel-default" style="background-color:rgba(202,202,202,0.2);">
+		<h1 class="text-center">Interactive!</h1>
+		<div class="panel-body">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
+	</div>
 
 
 	<script type="text/javascript">
-		$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");
+		// $("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");
 	</script>
 
 </body>

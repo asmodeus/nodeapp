@@ -5,6 +5,10 @@ exports.call = function(query, callback) {
 	  if(err) {
 	  	return console.error('error fetching client from pool', err);
 	  }
+	  if ( query instanceof Array ){
+	  	query = queryConstructor.apply(this, query);
+	  }
+	  
 	  client.query(query, function(err, result) {
 	    //call `done()` to release the client back to the pool
 	    done();
@@ -18,3 +22,8 @@ exports.call = function(query, callback) {
 	});
 };
 
+function queryConstructor (method, table, where, order ){
+	where = where ? "" : " WHERE CATEGORY = '"+where+"'";
+	order = order ? "" : " ORDER BY "+order;
+	return method+" * FROM "+table+where+order;
+}
