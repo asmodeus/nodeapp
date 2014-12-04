@@ -1,4 +1,3 @@
 public/bootstrap-3.0.3/
 node_modules/
 createTables.sql
-.env
