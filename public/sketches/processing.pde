@@ -1,49 +1,38 @@
-// All Examples Written by Casey Reas and Ben Fry
+// Pressing Control-R will render this sketch.
 
-// unless otherwise stated.
+int i = 0; 
 
-float max_distance;
-float radius;
+void setup() {  // this is run once.   
+    
+    // set the background color
+    background(255);
+    
+    // canvas size (Integers only, please.)
+    size(300, 300); 
+      
+    // smooth edges
+    smooth();
+    
+    // limit the number of frames per second
+    frameRate(30);
+    
+    // set the width of the line. 
+    strokeWeight(12);
+} 
 
-void setup() {
+void draw() {  // this is run repeatedly.  
 
-  size(332, 208); 
-
-  smooth();
-
-  noStroke();
-
-  // frameRate(26);
-
-  // strokeWeight( 1111 );
-
-  max_distance = dist(300, 300, width, height);
-
-}
-
-
-
-void draw() {
-
-  background(300, mouseY/2, mouseX/2 );
-
-  radius = radius + sin( frameCount / 6 ); 
-
-  for(int i = 0; i <= width*1.1; i += 20) {
-
-    for(int j = 0; j <= width*1.1; j += 20) {
-
-      float size = dist(j, j, mouseX, mouseY);
-
-      size = size/max_distance * 66 - radius;
-
-      fill(i/3, j/3, mouseX/3);
-
-      ellipse(i, j, size, size);
-
+    // set the color
+    stroke(random(50), random(255), random(255), 100);
+    
+    // draw the line
+    line(i, 0, random(0, width), height);
+    
+    // move over a pixel
+    if (i < width) {
+        i++;
+    } else {
+        i = 0; 
     }
-
-
-  }
-
 }
+
