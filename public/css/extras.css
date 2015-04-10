@@ -1,61 +1,64 @@
- @font-face { 
- 	font-family: "Construthinvism"; src: url('./fonts/Const/construthinvism.ttf'); 
- }
+@font-face { 
+	font-family: "Higher"; src: url('./fonts/Higher/Higher.otf'); 
+}
 
- @font-face { 
- 	font-family: "Calendas Plus"; src: url('./fonts/Calendas_Plus/Calendas_Plus.otf'); 
- }
+body {
+  /*min-height: 2000px;*/
+  margin: 0;
+  padding: 4.4em;
+  font: 15px "Georgia", "Times New Roman", "UnBatang"
+  background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
+  background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
+  background-repeat: no-repeat;
+}
 
- @font-face { 
- 	font-family: "Higher"; src: url('./fonts/Higher/Higher.otf'); 
- }
+a {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
 
- body {
- 	/*min-height: 2000px;*/
- 	margin: 0;
- 	padding: 8em 10em;
- 	font: 15px "Helvetica Neue", "Lucida Grande", "Arial";
- 	background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
- 	background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
- 	background-repeat: no-repeat;
- }
-
- a {
- 	color: red;
- 	-o-transition:.5s;
- 	-ms-transition:.5s;
- 	-moz-transition:.5s;
- 	-webkit-transition:.5s;
- 	transition:.5s;
- }
+li:hover {
+  text-decoration: underline;
+}
 
 .anchorspace {
   padding-bottom: 4em;
 }
 
-.spacer {
-  margin: 50em 0;
-}
-
 .navbar-nav a {
- 	font-family: "Higher";
-	font-size: 34px;
+  font-family: "Roboto Slab";
+  font-size: 1.48em;
   display:inline-block; 
   vertical-align:bottom;
- }
+}
 
- h3, h2, h1, button {
- 	font-family: "Calendas Plus";
- }
+body {
+  min-width: 640px;
+  max-width: 960px;
+}
 
- p {
- 	font-family: "Calendas Plus";
- 	font-size: 18px;
- }
+h3, h2, h1 {
+  font-family: "Roboto Slab";
+  letter-spacing: 1px; 
+}
 
- li:hover {
- 	text-decoration: underline;
- }
+p, button {
+  font-family: "Roboto Slab";
+  font-size: 1.3em;
+  line-height: 1.2667;
+}
+
+div .info {
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.tags {
+	max-width:inherit;
+}
 
 .center {
 	margin: 0 auto;
@@ -71,26 +74,18 @@
 }
 
 .nox {
+  overflow-x:none;
+}
+
+.tags {
 	overflow-x:none;
 }
 
-.left {
+.panel-body p {
   margin: 0 0;
   padding-left:1em; 
   padding:0.5em 0; 
 }
-
-/*
-html {
-  overflow: hidden;
-  height: 100%;
-}
-*/
-/*body {
-  overflow: auto;
-  height: 100%;
-}
-*/
 
 /* unset bs3 setting */
 .modal-open {
