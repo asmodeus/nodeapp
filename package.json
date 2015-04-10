@@ -1,14 +1,20 @@
 {
-  "name": "nodejs webapp",
-  "version": "1.0.0",
+  "name": "mode-site",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "express": "~3.4.4",
-    "ejs": "*",
-    "less-middleware": "*",
-    "pg": "*"
+    "ejs": "~2.3.1",
+    "less-middleware": "~2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-markdown": "^1.0.0"
   }
 }
