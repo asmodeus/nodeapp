@@ -1,0 +1,34 @@
+[
+	{
+
+		"title":"A glorious test!",
+		"tags":["gloriousness test", "games"],
+		"quickdesc":"not inglorious",
+		"date":"Friday, April 10, 2015 12:00",
+		"link":"TEST.html",
+		"thumbnail":"",
+		"_extra":"_reserved"
+	},
+	
+	{
+
+		"title":"A glorious title!",
+		"tags":["gloriousness", "animations"],
+		"quickdesc":"not inglorious",
+		"date":"Friday, April 10, 1915 12:00",
+		"link":"TEST.html",
+		"thumbnail":"",
+		"_extra":"_reserved"
+	},
+	
+	{
+
+		"title":"An inglorious title!",
+		"tags":["ingloriousness", "words"],
+		"quickdesc":"not glorious",
+		"date":"Friday, April 10, 1815 12:00",
+		"link":"TEST.html",
+		"thumbnail":"",
+		"_extra":"_reserved"
+	}
+]
