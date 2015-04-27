@@ -80,24 +80,13 @@
 
 	<div class="panel-body" id="content">
 
-		<% data.forEach(function(post) { %>
 			<br>
 			<div class="panel panel-default" style="background-color:rgba(202,202,202,0.3);">
 				<div class="panel-body">
-				<a href="<%= post.url %>"><h3><%=  post.title %></h3></a>
-				<p><%= post.quickdesc %></p>
-					<p class="tags">tagged as 
-						<% post.tags.forEach(function(tag,idx,array) { %>
-						<a href="/tags/<%= tag %>"><%= tag %></a>
-						<% if (idx!==array.length-1) { %>,
-							<% } %>
-						<% }); %> 
-					</p>		
-					<p class="date"><%= post.date %></p>
+					<p>about</p>
 				</div>
 			</div>
-			
-		<% }); %> 
+
 
 
 
