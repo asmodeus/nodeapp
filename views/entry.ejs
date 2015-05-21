@@ -1,81 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!--[if lt IE 9]>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<![endif]-->
-	<script type="text/javascript">
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)} ,i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-60520175-1', 'auto');
-		ga('send', 'pageview');
- 	</script>
 
-  	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="initial-scale = 0.5, maximum-scale = 1" />
-
-	<title>Blogtitle</title>
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="/bootstrap-dist/js/bootstrap.min.js"></script>
-	<link rel='stylesheet' href='/bootstrap-dist/css/bootstrap.min.css'/>
-	<link rel='stylesheet' href='/bootstrap-dist/css/bootstrap-theme.min.css'/>
-	<link href="/css/extras.css" rel="stylesheet">
+	<% include partials/head.ejs %>
 
 </head>
 
 <body class="center">
 
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-
-		<div class="container"> 
-
-			<!-- Brand and toggle get grouped for better mobile display -->
-
-			<div class="navbar-header " >
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			
-			<div class="collapse navbar-collapse" id="navbar-collapse-1">
-				<ul class="nav navbar-nav nav-justified nav-pills"> 
-					
-					<li class="dropdown">
-						<a href="/archive"  >Archive</a>
-					</li>
-
-					<li class="dropdown" >
-						<a href="/tags/ideas"  >Ideas</a>
-					</li>
-
-					<li class="dropdown" >
-						<a href="/tags/animations"  >Animations</a>
-					</li>
-
-					<li class="dropdown" >
-						<a href="/tags/games"  >Games</a>
-					</li>
-
-					<li class="dropdown" >
-						<a href="/about"  >About</a>
-					</li>
-
-				</ul>
-			</div>
-
-		</div> <!-- Container end -->
-		
-	</nav> <!-- Navbar end -->
+	
+	<% include partials/nav.ejs %>
 
 
 	<div class="panel-body" id="content">
@@ -92,22 +26,14 @@
 						<% }); %> 
 					</p>		
 					<p class="date"><%= post.date %></p>
+					
 				</div>
 			</div>
-			
 
 	</div> <!-- Content End -->
 
 	
-
-	<div class="panel-body">
-		<p class="info">
-			© Copyright 2015 by Adam Theodor Högberg.<br>
-			Contact <a href="mailto:theoswe@gmail.com">mail</a>.<br>
-			<a href="/feed.atom" rel="alternate" title="Theo Hogberg">Atom</a>, 
-			<a href="www.devtacular.com/utilities/atomtorss/?url=http%3a%2f%athogberg.herokuapp.com%2ffeed.atom" rel="alternate" title="Theo Hogberg">RSS</a>.<br>
-			</p>
-	</div>
+	<% include partials/copystuff.ejs %>
 
 
 <!-- 	<script type="text/javascript">

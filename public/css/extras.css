@@ -57,7 +57,11 @@ div .info {
 }
 
 .tags {
-	max-width:inherit;
+  max-width:inherit;
+}
+
+.tag {
+  text-decoration: underline;
 }
 
 .center {
@@ -90,4 +94,8 @@ div .info {
 /* unset bs3 setting */
 .modal-open {
  overflow: auto; 
+}
+
+.date {
+ font-size: 1.1em;
 }
