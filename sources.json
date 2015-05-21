@@ -1,33 +1,36 @@
 [
 	{
 
-		"title":"A glorious test!",
-		"tags":["gloriousness test", "games"],
-		"quickdesc":"not inglorious",
-		"date":"Friday, April 10, 2015 12:00",
-		"link":"TEST.html",
+		"title":"Canvas space screensaver",
+		"tags":["animations"],
+		"quickdesc":"HTML5 rewamp of screensaver flying through space.",
+		"date":"April 10, 2015 10:00",
+		"html":"TEST.html",
+		"resources":["stars.js"],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	},
 	
 	{
 
-		"title":"A glorious title!",
+		"title":"A glorious title",
 		"tags":["gloriousness", "animations"],
 		"quickdesc":"not inglorious",
-		"date":"Friday, April 10, 1915 12:00",
-		"link":"TEST.html",
+		"date":"Friday, April 10, 2115 12:00",
+		"html":"TEST.html",
+		"resources":[],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	},
 	
 	{
 
-		"title":"An inglorious title!",
-		"tags":["ingloriousness", "words"],
+		"title":"An inglorious title",
+		"tags":["ingloriousness", "ideas"],
 		"quickdesc":"not glorious",
-		"date":"Friday, April 10, 1815 12:00",
-		"link":"TEST.html",
+		"date":"Friday, April 10, 1915 08:00",
+		"html":"TEST.html",
+		"resources":[],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	}
