@@ -3,7 +3,8 @@ window.onload = function () {
 	var STARS = [],
 		WIDTH = 800,
 		HEIGHT = 600,
-		BACKGROUND = "#000000";
+		BACKGROUND = "#000000",
+		COLORS = ["#800080", "#000055", "#000000" ];
 
 	var canvas = document.getElementById("canvas");	
 	canvas.setAttribute("width", WIDTH);
@@ -14,7 +15,7 @@ window.onload = function () {
 	{
 		var SQUARE = fixFloat((Math.random()*4)-2);
 		return {		
-			color : "#aaaaaa",
+			color : "#000033",
 			x : (WIDTH/2)-SQUARE/2,
 			y : (HEIGHT/2)-SQUARE/2,
 			start_size : SQUARE,
@@ -24,15 +25,11 @@ window.onload = function () {
 			delta_y : fixFloat((Math.random()*4)-2),
 			style : "fillStyle",
 			shape : "fillRect",
-			blur : 9
+			blur : 9,
+			lum : 0
 		};
 	}
 
-	function fill(color){
-		context.fillStyle = color;
-		context.fillRect(0, 0, WIDTH, HEIGHT);
-	}
-	
 	function drawStars(){
 		for (var i = 0; i < arguments.length; i++) {
 			var o = arguments[i];
@@ -46,21 +43,21 @@ window.onload = function () {
 	function updateStars(){
 		for (var i = 0; i < arguments.length; i++) {
 			var o = arguments[i];
+
 			if ( (o.x|0) > -20 && (o.y|0) > -20 && ((o.x|0) < WIDTH && (o.y|0) < HEIGHT) ) {
 
-				o.x-=o.delta_x||4;
-				o.y-=o.delta_y||4;
+				o.lum+=0.015
+				luminance(o, o.lum);
+
+				o.x-=o.delta_x||3;
+				o.y-=o.delta_y||3;
 				o.w+=0.002;
 				o.h+=0.002;
-				o.color = luminance(o.color, 2);
-
-				if (abs(o.delta_x) < 0.3 || abs(o.delta_y) < 0.3) {
-					o.color = "grey";
-				}
 
 			}
 			else {
-				// console.log("hop!");
+				o.lum = 0;
+				o.color = "#000033"
 				o.x = WIDTH/2;
 				o.y = HEIGHT/2;
 				o.h = o.w = o.start_size;
@@ -75,35 +72,37 @@ window.onload = function () {
 		return parseFloat(float.toFixed(decimals));
 	}
 
-	function luminance(hex, lum) {
-		// validate hex string
-		hex = String(hex).replace(/[^0-9a-f]/gi, '');
-		if (hex.length < 6) {
-			hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-		}
-		lum = lum || 0;
 
-		// convert to decimal and change luminosity
-		var rgb = "#", c, i;
-		for (i = 0; i < 3; i++) {
-			c = parseInt(hex.substr(i*2,2), 16);
-			c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-			rgb += ("00"+c).substr(c.length);
-		}
+	function luminance(object, lum) {
+	    var hex = object.color;
+	    lum = lum || 1;
+	    
+	    hex = String(hex).replace(/[^0-9a-f]/gi, '')
+	    if (hex.length < 6)
+			hex = [ [hex[0],hex[0]].join(''), [hex[1],hex[1]].join(''), [hex[2],hex[2]].join('') ]
+		else 
+			hex = [hex.slice(0,2), hex.slice(2,4), hex.slice(4,6)]
 
-		return rgb;
+	    // using relative luminance
+	    // Y = 0.2126 R + 0.7152 G + 0.0722 B
+	    var rgb = [2.94459*lum, 9.90581*lum, 1*lum];
+	    
+		hex = hex.map(function(val, idx){
+	        var final = Math.min(Math.max(Math.round((parseInt(val, 16)+rgb[idx])), 0), 255).toString(16);
+	        return final.length<2 ? '0'+final : final;
+	    })
+
+		hex.splice(0, 0, '#')
+
+		object.color = hex.join('');
 	}	
 
 	// init with timeout...
 	function initStars (num, timeout){
-		// if (STARS.length <= num) {
-
 		for (var i = 0; i < num; i++) {
 			setTimeout(function(){
-
 				STARS.push(Star());
-
-			}, timeout*i)		
+			}, timeout*i)	
 		}
 		
 	}	
@@ -112,25 +111,20 @@ window.onload = function () {
 		return (v > 0) ? v : -v;
 	}
 
-	/* main */
-	if (1)
-	{
-		initStars(255, 40);
-		setInterval(function () {
-			fill(BACKGROUND);
-			updateStars.apply(null, STARS);
-			drawStars.apply(null, STARS);
+	function fill(color){
+		context.fillStyle = color;
+		context.fillRect(0, 0, WIDTH, HEIGHT);
+	}	
 
-		},30);
-	}
+	/* main */
+	initStars(150, 80);
+	setInterval(function () {
+		fill(BACKGROUND);
+		updateStars.apply(null, STARS);
+		drawStars.apply(null, STARS);
+	},30);
 
 
 
 };
-
-// dev reload page script
-// setInterval(function () {
-// 	window.location.reload();
-// },30000);
-
 

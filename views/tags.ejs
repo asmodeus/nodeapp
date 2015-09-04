@@ -7,10 +7,8 @@
 </head>
 
 <body class="center">
-
 	
 	<% include partials/nav.ejs %>
-
 
 	<div class="panel-body" id="content">
 
@@ -19,11 +17,9 @@
 				<div class="panel-body">
 					
 					<h3 class="tags">
-					<% data.forEach(function(tag,idx,array) { %>
-
-						<a class="tag" href="/tags/<%= tag %>"><%=tag%></a>&nbsp;
-
-					<% }); %> 			
+					<% for (var t in data) { %>
+						<a class="tag" href="/tags/<%= t %>" style="font-size:<%=data[t].num*1%>rem;"><%=t%></a>&nbsp;
+					<% } %>
 					</h3>		
 
 				</div>
@@ -37,7 +33,6 @@
 		$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");
 	</script> -->
 
-	<script type="text/javascript" src="/js/ui.js"></script>
 
 </body>
 </html>

@@ -1,36 +1,22 @@
 [
 	{
-
-		"title":"Canvas space screensaver",
-		"tags":["animations"],
-		"quickdesc":"HTML5 rewamp of screensaver flying through space.",
-		"date":"April 10, 2015 10:00",
-		"html":"TEST.html",
-		"resources":["stars.js"],
+		"title":"Canvas space flight",
+		"tags":["color", "animation"],
+		"quickdesc":"HTML5/Canvas remake of win95 screensaver - flying through space - with some colors added. Luminescence effect of stars have been added to the animation.",
+		"date":"April 10, 2015 11:07",
+		"html":"canvas_space_flight.html",
+		"canvas":["Color.js", "Stars.js"],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	},
 	
 	{
-
 		"title":"A glorious title",
-		"tags":["gloriousness", "animations"],
+		"tags":["bunga", "animation", "stuff"],
 		"quickdesc":"not inglorious",
 		"date":"Friday, April 10, 2115 12:00",
 		"html":"TEST.html",
-		"resources":[],
-		"thumbnail":"",
-		"_extra":"_reserved"
-	},
-	
-	{
-
-		"title":"An inglorious title",
-		"tags":["ingloriousness", "ideas"],
-		"quickdesc":"not glorious",
-		"date":"Friday, April 10, 1915 08:00",
-		"html":"TEST.html",
-		"resources":[],
+		"canvas":[],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	}

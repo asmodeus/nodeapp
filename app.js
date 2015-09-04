@@ -4,15 +4,13 @@
  var express = require("express");
  var http = require("http");
  var path = require("path");
- var src = sortByDate(JSON.parse(require("fs").readFileSync("sources.json", "UTF-8")));
+ var sources = sortByDate(JSON.parse(require("fs").readFileSync("sources.json", "UTF-8")));
  var app = express();
 
 // all environments
 app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.favicon());
-app.use(express.logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
@@ -27,7 +25,6 @@ if ( "development" == app.get("env") ) {
 }
 
 // do request if regex match
-// app.param("", /^\d+$/ );
 app.param(function(name, fn){
 	if (fn instanceof RegExp) {
 		return function(req, res, next, val){
@@ -42,23 +39,20 @@ app.param(function(name, fn){
 	}
 });
 
-// create post endpoints
-src.forEach(function(post) {
-
-	var d = new Date(post.date);
-
-	var url = "/"+d.getFullYear().toString()+"/"+d.getMonth().toString()+"/"+d.getDay().toString()+"/"+post.title.replace(/ /g, '-').toLowerCase();
-	post.url = url;
-
-	app.get(url, function( req, res ){
-		res.render("entry", {"post" : post});
-	});
-
+app.param("tag", /^\w+$/ );
+app.get("/tags/:tag", function( req, res ){
+	res.render("index", { "data" : getByTag(sources, req.params.tag.input) });
 });
+
 
 // go to archive
 app.get("/", function( req, res ){
 	res.redirect("/archive");
+});
+
+// index
+app.get("/archive", function( req, res ){
+	res.render( "index", { "data" : sources } );
 });
 
 // static about
@@ -66,36 +60,27 @@ app.get("/about", function( req, res ){
 	res.render( "about" );
 });
 
-// index
-app.get("/archive", function( req, res ){
-	res.render( "index", { "data" : src } );
-});
-
-// TODO: Refactor tags into one get with regex function
-// index
-app.get("/tags/ideas", function( req, res ){
-	res.render("index", { "data" : getByTag(src, "ideas") });
-});
-
-// index
-app.get("/tags/animations", function( req, res ){
-	res.render("index", { "data" : getByTag(src, "animations") });
-});
-
-// index
-app.get("/tags/games", function( req, res ){
-	res.render("index", { "data" : getByTag(src, "games") });
-});
-
-// index
-app.get("/tags/about", function( req, res ){
-	res.render("index", { "data" : getByTag(src, "about") });
-});
-
 // get all tags
 app.get("/tags", function( req, res ){
-	// TODO: Weighted tags
-	res.render("tags", { "data" : getAllTags(src) });
+	res.render("tags", { "data" : getAllTags(sources) });
+});
+
+app.get("/animations", function( req, res ){
+	res.render("index", { "data" : getByTag(sources, "animation") });
+});
+
+
+// create post endpoints
+sources.forEach(function(post) {
+
+	var d = new Date(post.date);
+
+	post.url = "/"+d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay()+"/"+post.title.replace(/ /g, '-').toLowerCase();
+
+	app.get(post.url, function( req, res ){
+		res.render("blogentry", {"post" : post});
+	});
+
 });
 
 // everything else is a 404
@@ -148,16 +133,16 @@ function sortByDate(sources){
 
 function getAllTags(sources){
 
-	var all_tags = [];
+	var all_tags = {};
 
 	sources.map(function(post) {
 
 		post.tags.map(function(tag) {
-			
-			if ( all_tags.indexOf(tag) === -1) {
-				all_tags.push(tag);
+			if ( !(tag in all_tags) ) {
+				all_tags[tag] = { num : 1 };
 			}
-
+			else 
+				all_tags[tag].num++;
 		});
 		
 	});
@@ -165,8 +150,6 @@ function getAllTags(sources){
 	return all_tags;
 
 }
-
-// getAllTags(src);
 
 // Cookie handling
 // app.get("/read", function (req, res) {

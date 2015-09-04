@@ -8,17 +8,21 @@
 
 <body class="center">
 
-	
 	<% include partials/nav.ejs %>
-
 
 	<div class="panel-body" id="content">
 
 			<br>
 			<div class="panel panel-default" style="background-color:rgba(202,202,202,0.3);">
 				<div class="panel-body">
-					
-					<p class="tags">tagged as 
+					<%- include('../html/'+post.html) %>
+					<% if (post.canvas.length > 0)  { %>
+						<canvas id="canvas"></canvas>
+						<% post.canvas.forEach(function(src){ %>
+							<script type="text/javascript" src="/js/<%= src %>"></script>
+						<% }) %>
+					<% } %>
+					<p class="tags">tags ⇒ 
 						<% post.tags.forEach(function(tag,idx,array) { %>
 						<a href="/tags/<%= tag %>"><%= tag %></a>
 						<% if (idx!==array.length-1) { %>,
@@ -31,16 +35,8 @@
 			</div>
 
 	</div> <!-- Content End -->
-
 	
 	<% include partials/copystuff.ejs %>
-
-
-<!-- 	<script type="text/javascript">
-		$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");
-	</script> -->
-
-	<script type="text/javascript" src="/js/ui.js"></script>
 
 </body>
 </html>

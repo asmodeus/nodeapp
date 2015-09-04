@@ -8,9 +8,7 @@
 
 <body class="center">
 
-	
 	<% include partials/nav.ejs %>
-
 
 	<div class="panel-body" id="content">
 
@@ -19,18 +17,16 @@
 			<br>
 			<div class="panel panel-default" style="background-color:rgba(202,202,202,0.3);">
 				<div class="panel-body">
-
-				<h3><a href="<%= post.url %>"><%=  post.title %></a></h3>
-				<p><%= post.quickdesc %></p>
-					<p class="tags">tagged as 
+					<h3><a href="<%= post.url %>"><%= post.title %></a></h3>
+					<p><%= post.quickdesc %></p>
+					<p class="tags">tags ⇒ 
 						<% post.tags.forEach(function(tag,idx,array) { %>
 						<a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
 						<% if (idx!==array.length-1) { %>,
 							<% } %>
 						<% }); %> 
 					</p>		
-				<p class="date"><%= post.date %></p>
-
+					<p class="date"><%= post.date %></p>
 				</div>
 			</div>
 			
@@ -45,7 +41,6 @@
 		$("#sketch").append("<canvas class='panel panel-default center' style='box-shadow: 3px 5px 6px #777; width : 100px;' data-processing-sources='/sketches/processing.pde' /></canvas>");
 	</script> -->
 
-	<script type="text/javascript" src="/js/ui.js"></script>
 
 </body>
 </html>

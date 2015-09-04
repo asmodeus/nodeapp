@@ -2,8 +2,16 @@
 	font-family: "Higher"; src: url('./fonts/Higher/Higher.otf'); 
 }
 
+#element::-webkit-scrollbar { 
+    display: none; 
+}
+
+/*force scrollbar*/
+html {
+  overflow-y: scroll; 
+}
+
 body {
-  /*min-height: 2000px;*/
   margin: 0;
   padding: 4.4em;
   font: 15px "Georgia", "Times New Roman", "UnBatang"
@@ -12,15 +20,17 @@ body {
   background-repeat: no-repeat;
 }
 
-a {
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
+canvas {
+  margin: 1em auto;
+  display: block;
+  width: 100%;
+  border-radius: 5px;  
+  background-color: black;
+
 }
 
 li:hover {
+  -webkit-transition:.5s;
   text-decoration: underline;
 }
 
@@ -40,19 +50,36 @@ body {
   max-width: 960px;
 }
 
-h3, h2, h1 {
+h3 {
   font-family: "Roboto Slab";
-  letter-spacing: 1px; 
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+img {
+  width: 100%;
+}
+
+h2, h1 {
+  font-family: "Roboto Slab";
+  font-size: 2em;  
+  margin-top: 1em;
 }
 
 p, button {
   font-family: "Roboto Slab";
-  font-size: 1.3em;
   line-height: 1.2667;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+
+canvas {
+  margin-top: 2em;
 }
 
 div .info {
-  font-size: 1.3em;
+  font-size: 1em;
   text-align: left;
 }
 
@@ -86,7 +113,6 @@ div .info {
 }
 
 .panel-body p {
-  margin: 0 0;
   padding-left:1em; 
   padding:0.5em 0; 
 }
@@ -94,8 +120,4 @@ div .info {
 /* unset bs3 setting */
 .modal-open {
  overflow: auto; 
-}
-
-.date {
- font-size: 1.1em;
 }
