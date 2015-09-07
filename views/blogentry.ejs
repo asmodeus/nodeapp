@@ -25,8 +25,7 @@
 					<p class="tags">tags ⇒ 
 						<% post.tags.forEach(function(tag,idx,array) { %>
 						<a href="/tags/<%= tag %>"><%= tag %></a>
-						<% if (idx!==array.length-1) { %>,
-							<% } %>
+						<% if (idx!==array.length-1) { %> ‒ <% } %>
 						<% }); %> 
 					</p>		
 					<p class="date"><%= post.date %></p>

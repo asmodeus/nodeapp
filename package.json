@@ -1,6 +1,6 @@
 {
-  "name": "mode-site",
-  "version": "0.6.0",
+  "name": "athogberg",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"

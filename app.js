@@ -16,6 +16,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser("hi-github"));
 app.use(express.session());
+app.use(express.favicon(__dirname+"/public/favicon.ico"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(app.router);
 
@@ -44,14 +45,13 @@ app.get("/tags/:tag", function( req, res ){
 	res.render("index", { "data" : getByTag(sources, req.params.tag.input) });
 });
 
-
 // go to archive
 app.get("/", function( req, res ){
-	res.redirect("/archive");
+	res.render( "blogentry", { "post" : sources[0] } );
 });
 
 // index
-app.get("/archive", function( req, res ){
+app.get("/archives", function( req, res ){
 	res.render( "index", { "data" : sources } );
 });
 
@@ -69,12 +69,10 @@ app.get("/animations", function( req, res ){
 	res.render("index", { "data" : getByTag(sources, "animation") });
 });
 
-
 // create post endpoints
 sources.forEach(function(post) {
 
 	var d = new Date(post.date);
-
 	post.url = "/"+d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay()+"/"+post.title.replace(/ /g, '-').toLowerCase();
 
 	app.get(post.url, function( req, res ){

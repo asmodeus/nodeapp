@@ -1,21 +1,20 @@
 [
 	{
-		"title":"Canvas space flight",
-		"tags":["color", "animation"],
-		"quickdesc":"HTML5/Canvas remake of win95 screensaver - flying through space - with some colors added. Luminescence effect of stars have been added to the animation.",
+		"title":"Canvas hyperspace flight",
+		"tags":["color", "code", "animation"],
+		"quickdesc":"HTML5/Canvas remake of win95 screensaver, flying through space, with some custom effects added. CIE luminescence code sample included.",
 		"date":"April 10, 2015 11:07",
 		"html":"canvas_space_flight.html",
-		"canvas":["Color.js", "Stars.js"],
+		"canvas":["Stars.js"],
 		"thumbnail":"",
 		"_extra":"_reserved"
 	},
-	
 	{
-		"title":"A glorious title",
-		"tags":["bunga", "animation", "stuff"],
-		"quickdesc":"not inglorious",
-		"date":"Friday, April 10, 2115 12:00",
-		"html":"TEST.html",
+		"title":"Displaying colors on a canvas with javascript",
+		"tags":["color", "code", "design", "canvas"],
+		"quickdesc":"Created a way of quickly creating and intepreting and modifying color values from CSS3 colors - HLS(A), RGBA - in  javascript.",
+		"date":"Friday, July 26, 2015 12:00",
+		"html":"web_colors.html",
 		"canvas":[],
 		"thumbnail":"",
 		"_extra":"_reserved"

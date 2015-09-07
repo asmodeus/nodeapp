@@ -15,7 +15,7 @@ window.onload = function () {
 	{
 		var SQUARE = fixFloat((Math.random()*4)-2);
 		return {		
-			color : "#000033",
+			color : "#000088",
 			x : (WIDTH/2)-SQUARE/2,
 			y : (HEIGHT/2)-SQUARE/2,
 			start_size : SQUARE,
@@ -46,7 +46,7 @@ window.onload = function () {
 
 			if ( (o.x|0) > -20 && (o.y|0) > -20 && ((o.x|0) < WIDTH && (o.y|0) < HEIGHT) ) {
 
-				o.lum+=0.015
+				o.lum+=0.01
 				luminance(o, o.lum);
 
 				o.x-=o.delta_x||3;
@@ -74,6 +74,7 @@ window.onload = function () {
 
 
 	function luminance(object, lum) {
+		object = object || { color:'#000' };
 	    var hex = object.color;
 	    lum = lum || 1;
 	    
@@ -84,8 +85,8 @@ window.onload = function () {
 			hex = [hex.slice(0,2), hex.slice(2,4), hex.slice(4,6)]
 
 	    // using relative luminance
-	    // Y = 0.2126 R + 0.7152 G + 0.0722 B
-	    var rgb = [2.94459*lum, 9.90581*lum, 1*lum];
+	    // L = 0.2126 R + 0.7152 G + 0.0722 B
+	    var rgb = [2.94459*lum, 9.90581*lum, lum];
 	    
 		hex = hex.map(function(val, idx){
 	        var final = Math.min(Math.max(Math.round((parseInt(val, 16)+rgb[idx])), 0), 255).toString(16);
@@ -104,7 +105,6 @@ window.onload = function () {
 				STARS.push(Star());
 			}, timeout*i)	
 		}
-		
 	}	
 	
 	function abs (v) {
